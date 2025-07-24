@@ -230,14 +230,16 @@ const Statistics = ({ books }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {recentBooks.map((book) => (
             <div key={book.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-200">
-              <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-blue-100 rounded mb-3 flex items-center justify-center">
+              <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-blue-100 rounded mb-3 flex items-center justify-center overflow-hidden">
                 {book.coverImage ? (
                   <img
                     src={book.coverImage}
                     alt={book.title}
-                    className="w-full h-full object-cover rounded"
+                    className="w-full h-full object-cover object-center rounded"
                     onError={(e) => {
+                      e.target.src = '';
                       e.target.style.display = 'none';
+                      e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
                     }}
                   />
                 ) : (
