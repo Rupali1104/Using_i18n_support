@@ -181,14 +181,16 @@ const BookList = ({
   const BookCard = ({ book }) => (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden group">
       {/* Book Cover */}
-      <div className="relative h-48 bg-gradient-to-br from-blue-50 to-blue-100">
+      <div className="relative h-64 bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
         {book.coverImage ? (
           <img
             src={book.coverImage}
             alt={book.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
             onError={(e) => {
+              e.target.src = '';
               e.target.style.display = 'none';
+              e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
             }}
           />
         ) : (
@@ -300,14 +302,16 @@ const BookList = ({
         />
 
         {/* Book Cover Thumbnail */}
-        <div className="w-16 h-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded flex-shrink-0 flex items-center justify-center">
+        <div className="w-16 h-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded flex-shrink-0 flex items-center justify-center overflow-hidden">
           {book.coverImage ? (
             <img
               src={book.coverImage}
               alt={book.title}
-              className="w-full h-full object-cover rounded"
+              className="w-full h-full object-cover object-center rounded"
               onError={(e) => {
+                e.target.src = '';
                 e.target.style.display = 'none';
+                e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
               }}
             />
           ) : (
