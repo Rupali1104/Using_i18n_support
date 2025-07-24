@@ -30,7 +30,6 @@ A comprehensive, production-ready book management application built with React a
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd bookshelf-manager
 
 # Install dependencies
 npm install
